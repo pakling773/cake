@@ -1,0 +1,68 @@
+<div class="content" style="border: 1xp solid red">
+  <div class="container-fluid">
+    <h4 class="page-title">Orders</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-title">Orders</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">#orderId</th>
+                  <th scope="col">Items</th>
+                  <th scope="col">Total Items</th>
+                  <th scope="col">Total Amount</th>
+                  <th scope="col">Shipping Address</th>
+                  <th scope="col">User</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of orders; track item) {
+                <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ getItems(item) }}</td>
+                  <td>
+                    {{ item.cart?.length }}
+                  </td>
+                  <td>${{ item.order_summary?.total }}</td>
+                  <td>
+                    {{ item.shipping_info?.address_1 }} <br />
+                    {{ item.shipping_info?.address_2 }}
+                  </td>
+                  <td>
+                    {{ item.user?.name?.toUpperCase() }}
+                  </td>
+                  <td>
+                    @if(item.completed){
+                    <div class="text-primary">Completed</div>
+                    }@else {
+                    <div class="text-secondary">Open</div>
+                    }
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      [routerLink]="['./view', item.id]"
+                    >
+                      View
+                    </button>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

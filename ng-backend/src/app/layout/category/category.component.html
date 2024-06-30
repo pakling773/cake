@@ -1,0 +1,61 @@
+<div class="content" style="border: 1xp solid red">
+  <div class="container-fluid">
+    <h4 class="page-title">CATEGORIES</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-title">Basic Table</div>
+              </div>
+              <div class="col-md-6 text-end">
+                <div class="card-title">
+                  <a routerLink="/app/category/add" class="btn btn-primary"
+                    >Add New Category</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of categories; track item) {
+                <tr>
+                  <td>{{ item.id }}</td>
+                  <td>
+                    {{ item.name }}
+                  </td>
+                  <td>
+                    <a
+                      routerLink="/app/category/add/{{ item.id }}/{{
+                        item.name
+                      }}"
+                      class="btn btn-primary m-1"
+                      ><i class="la la-pencil-square"></i
+                    ></a>
+                    <a
+                      href="#"
+                      (click)="delete($event, item.id!)"
+                      class="btn btn-danger m-1"
+                      ><i class="la la-trash"></i
+                    ></a>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

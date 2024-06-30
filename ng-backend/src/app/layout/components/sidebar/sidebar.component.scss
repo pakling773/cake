@@ -1,0 +1,12 @@
+.user {
+  text-decoration: none;
+}
+.user-level {
+  color: black;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}

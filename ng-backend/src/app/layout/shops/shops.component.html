@@ -1,0 +1,63 @@
+<div class="content" style="border: 1xp solid red">
+  <div class="container-fluid">
+    <h4 class="page-title">Shops</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-title">Shops</div>
+              </div>
+              <div class="col-md-6 text-end">
+                <div class="card-title">
+                  <a routerLink="/app/shops/add" class="btn btn-primary"
+                    >Add New Shop
+                  </a>
+                  <!-- <a (click)="getNearBy()" class="btn btn-primary"
+                    >Near By Shops</a
+                  > -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Logo</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of shops; track item) { @if(!item.deleted) {
+                <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>
+                    <img src="{{ item.logo }}" alt="" width="150" srcset="" />
+                  </td>
+                  <td>{{ item.address1?.address }}</td>
+                  <td>{{ item.phone_number }}</td>
+                  <td>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      [routerLink]="['./edit', item.id]"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                } }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

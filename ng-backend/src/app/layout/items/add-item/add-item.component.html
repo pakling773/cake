@@ -1,0 +1,176 @@
+<div class="content" style="border: 1xp solid red">
+  <div class="container-fluid">
+    <h4 class="page-title">Add New Cake Item {{ productForm.status }}</h4>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="productForm">
+          <div class="card">
+            <div class="card-body">
+              @if(error) {
+              <div class="error">All the fields are required</div>
+              }
+              <div class="form-group form-inline">
+                <label> Cake Name</label>
+                <input
+                  class="form-control form-control"
+                  type="text"
+                  formControlName="name"
+                />
+              </div>
+              @if(productFormControl.name.errors &&
+              productFormControl.name.touched){
+              <span class="text-danger">Cake name is required</span>
+              }
+
+              <div class="form-group form-inline">
+                <label> Price </label>
+                <input
+                  class="form-control form-control"
+                  type="text"
+                  formControlName="price"
+                />
+              </div>
+              @if(productFormControl.price.errors &&
+              productFormControl.price.touched){
+              <div class="text-danger">
+                Price is required and must be a number
+              </div>
+              }
+
+              <div class="form-group form-inline">
+                <label> Brands</label>
+
+                <select formControlName="flavour_id" class="form-control">
+                  <option value="">Select Brand</option>
+                  @for (flavour of flavours; track flavour) {
+
+                  <option [value]="flavour.id">{{ flavour.name }}</option>
+                  }
+                </select>
+              </div>
+              @if(productFormControl.flavour_id.errors &&
+              productFormControl.flavour_id.touched){
+              <div class="text-danger">Brand is required</div>
+              }
+
+              <div class="form-group form-inline">
+                <label> Category</label>
+                <select formControlName="category_id" class="form-control">
+                  <option value="">Select Category</option>
+                  @for (item of categories; track item) {
+
+                  <option [value]="item.id">{{ item.name }}</option>
+                  }item
+                </select>
+              </div>
+              @if(productFormControl.category_id.errors &&
+              productFormControl.category_id.touched){
+              <div class="text-danger">Category is required</div>
+              }
+
+              <div class="form-group form-inline">
+                <label> Shop</label>
+                <select formControlName="shop_id" class="form-control">
+                  <option value="">Select Shop</option>
+                  @for (item of shops; track item) {
+
+                  <option [value]="item.id">{{ item.name }}</option>
+                  }item
+                </select>
+              </div>
+              @if(productFormControl.shop_id.errors &&
+              productFormControl.shop_id.touched){
+              <div class="text-danger">Shop is required</div>
+              }
+
+              <div class="form-group form-inline">
+                <label> Description</label>
+                <textarea
+                  class="form-control form-control"
+                  type="text"
+                  formControlName="description"
+                  rows="5"
+                ></textarea>
+              </div>
+              @if(productFormControl.description.errors &&
+              productFormControl.description.touched){
+              <span class="text-danger">Description is required</span>
+              }
+
+              <div class="form-group form-inline">
+                <label> Specification</label>
+                <textarea
+                  class="form-control form-control"
+                  type="text"
+                  formControlName="specification"
+                  rows="5"
+                ></textarea>
+              </div>
+              @if(productFormControl.specification.errors &&
+              productFormControl.specification.touched){
+              <span class="text-danger">Specification is required</span>
+              }
+
+              <div class="form-group form-inline">
+                <label> Tags </label>
+                <div class="editor-tag form-control" (click)="focusTagInput()">
+                  @for (tag of tags; track tag) {
+                  <span class="tag-item">
+                    {{ tag }}
+                    <span class="remove-tag" (click)="removeTag(tag)">×</span>
+                  </span>
+                  }
+                  <input
+                    placeholder="Enter tags"
+                    #tagInput
+                    type="text"
+                    class="input-tag"
+                    (keydown)="onKeyDown($event)"
+                    (keyup)="onKeyUp($event)"
+                    formControlName="tags"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group form-inline">
+                <label> Photo</label>
+                <input
+                  class="form-control form-control"
+                  type="file"
+                  (change)="onFileSelected($event)"
+                />
+                <input
+                  style="display: none"
+                  class="form-control form-control"
+                  type="text"
+                  formControlName="photo"
+                />
+              </div>
+              <div class="form-group justify-content-start">
+                <label></label>
+                <img
+                  class="img-thumbnail"
+                  width="180px"
+                  [src]="productFormControl.photo.value"
+                />
+              </div>
+              @if(productFormControl.photo.errors &&
+              productFormControl.photo.touched){
+              <div class="text-danger">photo is required</div>
+              }
+            </div>
+
+            <div class="card-action">
+              <button class="btn btn-success" (click)="saveData()">
+                Submit
+              </button>
+              &nbsp;
+              <button class="btn btn-danger" (click)="(null)">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

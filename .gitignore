@@ -1,0 +1,4 @@
+frontend/build
+backend/node_modules
+ng-backend/.angular
+ng-backend/node_modules

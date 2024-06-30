@@ -1,0 +1,3 @@
+gsutil cors set cors.json gs://pak-cakeshop.appspot.com
+https://pak-cakeshop--frontend-87vx9jba.web.app/#/profile
+https://pak-cakeshop.firebaseapp.com/auth/

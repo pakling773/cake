@@ -1,0 +1,80 @@
+<div class="content" style="border: 1xp solid red">
+  <div class="container-fluid">
+    <h4 class="page-title">Items</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-title">Cakes</div>
+              </div>
+              <div class="col-md-6 text-end">
+                <div class="card-title">
+                  <a routerLink="/app/items/add" class="btn btn-primary"
+                    >Add New Cake</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">Featured</th>
+                  <th scope="col">Photo</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">#Id</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Category</th>
+
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of cakes; track item) { @if(!item.deleted) {
+                <tr>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="check[]"
+                      class="cc"
+                      [checked]="item.featured"
+                      (change)="featureItem($event, item.id!)"
+                    />
+                  </td>
+                  <td><img [src]="item.photo" alt="" class="photo" /></td>
+                  <td>{{ item.name }}</td>
+                  <td>
+                    {{ item.id }}
+                  </td>
+                  <td>{{ item.price }}</td>
+                  <td>{{ item.category?.name }}</td>
+
+                  <td>
+                    <a
+                      href="#"
+                      (click)="deleteItem(item.id!)"
+                      class="btn btn-danger m-1"
+                      ><i class="la la-trash"></i
+                    ></a>
+                    <a
+                      class="btn btn-primary m-1"
+                      [routerLink]="['./edit', item.id]"
+                      ><i
+                        _ngcontent-ng-c1397980171=""
+                        class="la la-pencil-square"
+                      ></i
+                    ></a>
+                  </td>
+                </tr>
+                } }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

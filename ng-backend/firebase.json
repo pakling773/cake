@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": "./dist/ng-backend/browser",
+
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "frameworksBackend": {
+      "region": "us-central1"
+    },
+    "functions": {
+      "runtime": "nodejs20"
+    }
+  }
+}

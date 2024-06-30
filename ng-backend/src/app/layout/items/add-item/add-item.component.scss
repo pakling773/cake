@@ -1,0 +1,51 @@
+.form-group {
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 10px 0px;
+  label {
+    width: 150px;
+  }
+}
+.text-danger {
+  margin-left: 132px;
+}
+.error {
+  color: red;
+}
+
+.editor-tag {
+  cursor: text;
+
+  & .tag-item {
+    line-height: 20px;
+    border-radius: 14px;
+    height: 22px;
+    font-size: 15px;
+    display: inline-block;
+    background: #222;
+    padding-left: 10px;
+    color: #fff;
+    padding-right: 4px;
+    padding-top: 1px;
+
+    .remove-tag {
+      padding-right: 5px;
+      cursor: pointer;
+    }
+  }
+
+  & .tag-item:not(:first-child) {
+    margin-left: 5px;
+  }
+
+  & input {
+    margin: 0;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+  }
+}

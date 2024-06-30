@@ -1,0 +1,13 @@
+global_options:
+  # This order fixes dio not being able to pickup json type
+  # https://github.com/cfug/dio/issues/1653#issuecomment-1619001341
+  freezed:
+    runs_before:
+      - json_serializable
+  
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          explicit_to_json: true

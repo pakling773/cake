@@ -1,0 +1,42 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "pak-cakeshop",
+          "appId": "1:440722473262:android:1331bfac481ac8c3903abf",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "pak-cakeshop",
+          "appId": "1:440722473262:ios:17cd799ed437cfb6903abf",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "pak-cakeshop",
+          "configurations": {
+            "android": "1:440722473262:android:1331bfac481ac8c3903abf",
+            "ios": "1:440722473262:ios:17cd799ed437cfb6903abf",
+            "web": "1:440722473262:web:d8edcd81dfd825d5903abf"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
+  }
+}

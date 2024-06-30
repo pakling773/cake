@@ -1,0 +1,17 @@
+.form-group {
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 10px 0px;
+  label {
+    width: 150px;
+  }
+}
+.text-danger {
+  margin-left: 132px;
+}
+.error {
+  color: red;
+}

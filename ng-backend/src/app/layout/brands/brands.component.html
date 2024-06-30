@@ -1,0 +1,73 @@
+<div class="content" style="border: 1xp solid red">
+  <div class="container-fluid">
+    <h4 class="page-title">Items</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-title">Brands</div>
+              </div>
+              <div class="col-md-6 text-end">
+                <div class="card-title">
+                  <a routerLink="/app/brands/add" class="btn btn-primary"
+                    >Add New Brand</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">Featured</th>
+                  <th scope="col">Photo</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">#</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of brands; track item) { @if(!item.deleted) {
+                <tr>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name="check[]"
+                      class="cc"
+                      [checked]="item.featured"
+                      (change)="featureItem($event, item.id!)"
+                    />
+                  </td>
+                  <td>
+                    <img
+                      [src]="
+                        item.photo ??
+                        'https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg'
+                      "
+                      alt=""
+                      class="photo"
+                    />
+                  </td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.id }}</td>
+                  <td>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      (click)="deleteItem(item.id!)"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+                } }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "440722473262",
+    "project_id": "pak-cakeshop",
+    "storage_bucket": "pak-cakeshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440722473262:android:1331bfac481ac8c3903abf",
+        "android_client_info": {
+          "package_name": "com.pakling.cakeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvHSBOPKK_a3fp2O8BshxEpfAoh1PJD9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

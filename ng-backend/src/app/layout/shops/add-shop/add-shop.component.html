@@ -1,0 +1,138 @@
+<div class="content" style="border: 1xp solid red">
+  <div class="container-fluid">
+    <h4 class="page-title">Add Shop</h4>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="shopForm">
+          <div class="card">
+            <div class="card-body">
+              @if(error) {
+              <div class="error">All the fields are required</div>
+              }
+              <div class="form-group form-inline">
+                <label> Shop Name</label>
+                <input
+                  class="form-control form-control"
+                  type="text"
+                  formControlName="name"
+                />
+              </div>
+              @if(shopFormControl.name.errors && shopFormControl.name.touched){
+              <span class="text-danger">Shop name is required</span>
+              }
+
+              <div class="form-group form-inline">
+                <label> Phone</label>
+                <input
+                  class="form-control form-control"
+                  type="text"
+                  formControlName="phone"
+                />
+              </div>
+              @if(shopFormControl.phone.errors &&
+              shopFormControl.phone.touched){
+              <span class="text-danger">Phone is required</span>
+              }
+
+              <div class="form-group form-inline">
+                <label> Address 1 </label>
+
+                <AutocompleteComponent
+                  (setAddress)="getAddress($event)"
+                  adressType="geocode"
+                  [value]="shopFormControl.address.value!"
+                ></AutocompleteComponent>
+              </div>
+              @if(shopFormControl.address.errors &&
+              shopFormControl.address.touched){
+              <span class="text-danger">Address is required</span>
+              } @else if((shopFormControl.latitude.errors ||
+              shopFormControl.longitude.errors) &&
+              shopFormControl.address.touched){
+              <span class="text-danger"
+                >Please Select address from dropdown</span
+              >
+              }
+
+              <div class="form-group form-inline">
+                <label> Address 2</label>
+                <input
+                  class="form-control form-control"
+                  type="text"
+                  formControlName="address2"
+                />
+              </div>
+              @if(shopFormControl.address2.errors &&
+              shopFormControl.address2.touched){
+              <span class="text-danger">Address 2 is required</span>
+              }
+
+              <div class="form-group form-inline">
+                <label> Opening Hours</label>
+                <input
+                  class="form-control form-control"
+                  type="time"
+                  formControlName="opening_hour"
+                />
+              </div>
+              @if(shopFormControl.opening_hour.errors &&
+              shopFormControl.opening_hour.touched){
+              <span class="text-danger">Opening hours is required</span>
+              }
+
+              <div class="form-group form-inline">
+                <label> Closing Hours</label>
+                <input
+                  class="form-control form-control"
+                  type="time"
+                  formControlName="closing_hour"
+                />
+              </div>
+              @if(shopFormControl.closing_hour.errors &&
+              shopFormControl.closing_hour.touched){
+              <span class="text-danger">Closing hours is required</span>
+              }
+
+              <div class="form-group form-inline">
+                <label> Logo</label>
+                <input
+                  class="form-control"
+                  type="file"
+                  (change)="onFileSelected($event)"
+                />
+                <input
+                  style="display: none"
+                  class="form-control"
+                  type="text"
+                  formControlName="logo"
+                />
+              </div>
+              <div class="form-group justify-content-start">
+                <label></label>
+                <img
+                  class="img-thumbnail"
+                  width="180px"
+                  [src]="shopFormControl.logo.value"
+                />
+              </div>
+              @if(shopFormControl.logo.errors && shopFormControl.logo.touched){
+              <div class="text-danger">Logo is required</div>
+              }
+            </div>
+
+            <div class="card-action">
+              <button class="btn btn-success" (click)="saveData()">
+                Submit
+              </button>
+              &nbsp;
+              <button class="btn btn-danger" [routerLink]="['/app/shops']">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
